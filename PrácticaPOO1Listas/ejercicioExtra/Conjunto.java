@@ -2,8 +2,8 @@ package ejercicioExtra;
 
 import java.util.ArrayList;
 
-public class Conjunto <T>{
-	
+public class Conjunto<T> {
+
 	private ArrayList<T> conjunto = new ArrayList<>();
 
 	private T element;
@@ -37,6 +37,7 @@ public class Conjunto <T>{
 			this.conjunto.add(element);
 
 			return true;
+
 		}
 
 	}
@@ -52,9 +53,9 @@ public class Conjunto <T>{
 		} else {
 
 			return false;
-			
+
 		}
-		
+
 	}
 
 	public Conjunto<T> union(Conjunto<T> a) {
@@ -66,17 +67,17 @@ public class Conjunto <T>{
 			u.addElement(i);
 
 		}
-		
+
 		for (T j : a.conjunto) {
 
 			u.addElement(j);
 		}
-		
+
 		return u;
-		
+
 	}
 
-	public Conjunto<T>interseccion(Conjunto<T> a) {
+	public Conjunto<T> interseccion(Conjunto<T> a) {
 
 		Conjunto<T> c = new Conjunto<>();
 
@@ -85,16 +86,16 @@ public class Conjunto <T>{
 			if (a.conjunto.contains(i)) {
 
 				c.conjunto.add(i);
-				
+
 			}
-			
+
 		}
-		
+
 		return c;
-		
+
 	}
 
-	public Conjunto<T>diferencia(Conjunto<T> a) {
+	public Conjunto<T> diferencia(Conjunto<T> a) {
 
 		Conjunto<T> d = new Conjunto<>();
 
@@ -103,13 +104,13 @@ public class Conjunto <T>{
 			if (!a.conjunto.contains(i)) {
 
 				d.conjunto.add(i);
-				
+
 			}
-			
+
 		}
-		
+
 		return d;
-		
+
 	}
 
 	public boolean bePartOf(T element) {
@@ -121,7 +122,7 @@ public class Conjunto <T>{
 		} else {
 
 			return false;
-			
+
 		}
 
 	}
@@ -133,17 +134,17 @@ public class Conjunto <T>{
 			if (!a.conjunto.contains(i)) {
 
 				return false;
-				
+
 			}
-			
+
 		}
-		
+
 		return true;
-		
+
 	}
 
-	public boolean twins(Conjunto<T> a) {      
-		
+	public boolean twins(Conjunto<T> a) {
+
 		for (T i : this.conjunto) {
 
 			if (!a.bePartOf(i)) {
@@ -153,19 +154,19 @@ public class Conjunto <T>{
 					if (!this.bePartOf(j)) {
 
 						return false;
-						
+
 					}
 
 				}
-				
+
 				return false;
-				
+
 			}
 
 		}
-		
+
 		return true;
-		
+
 	}
 
 	@Override
@@ -176,9 +177,9 @@ public class Conjunto <T>{
 		for (T i : this.conjunto) {
 
 			s += "el " + i + ",";
-			
+
 		}
-		
+
 		s = s.substring(0, s.length() - 1);
 
 		return s + "}";

@@ -8,7 +8,7 @@ public class Juego {
 
 	Scanner sc = new Scanner(System.in);
 
-	Tablero t1;
+	Tablero t1 = new Tablero();
 
 	Jugadores j1;
 
@@ -36,15 +36,23 @@ public class Juego {
 
 		String moneda2 = "";
 
+		InicializarJugadores();
+
 		moneda = elegirCaraDeLaMoneda();
 
 		moneda2 = tirarMoneda(r, moneda2);
 
 		if (comprobarMoneda(moneda, moneda2)) {
 
-			queCaraHaSalido(moneda2);
+			imprimirQueCaraHaSalido(moneda2);
 
-			InicializarJugadoresTablero();
+			System.out.println("");
+			System.out.println(this.j1.getNombre() + " has acertado!!Empiezas poniendo ficha");
+			System.out.println("");
+			
+			tiempo(3);
+
+			InicializarTablero();
 
 			do {
 
@@ -53,7 +61,7 @@ public class Juego {
 				if (comprobarQueElJuegoHaTerminado()) {
 
 					break;
-					
+
 				}
 
 				jugarJugador2();
@@ -64,7 +72,14 @@ public class Juego {
 
 			imprimirQueCaraHaSalido(moneda2);
 
-			InicializarJugadoresTablero();
+			System.out.println("");
+			System.out.println(
+					this.j1.getNombre() + ",has fallado.Empieza poniendo ficha tu adversario," + this.j2.getNombre());
+			System.out.println("");
+			
+			tiempo(3);
+
+			InicializarTablero();
 
 			do {
 
@@ -84,35 +99,27 @@ public class Juego {
 	}
 
 	public boolean comprobarQueElJuegoNoHaTerminado() {
-		
+
 		return contador < 9 && t1.comprobarGanador() == false;
-		
+
 	}
 
 	public boolean comprobarQueElJuegoHaTerminado() {
-		
+
 		return t1.comprobarGanador() == true || contador == 9 && t1.comprobarGanador() == false;
-		
+
 	}
 
 	public boolean comprobarMoneda(String moneda, String moneda2) {
-		
-		return moneda2.equalsIgnoreCase(moneda);
-		
-	}
 
-	public void queCaraHaSalido(String moneda2) {
-		
-		imprimirQueCaraHaSalido(moneda2);
-		
-		System.out.println("");
-		
+		return moneda2.equalsIgnoreCase(moneda);
+
 	}
 
 	public String tirarMoneda(Random r, String moneda2) {
-		
+
 		int azar;
-		
+
 		azar = r.nextInt(2);
 
 		if (azar == 1) {
@@ -124,17 +131,18 @@ public class Juego {
 			moneda2 = "CRUZ";
 
 		}
-		
+
 		return moneda2;
-		
+
 	}
 
 	public String elegirCaraDeLaMoneda() {
-		
-		String moneda;
-		
-		System.out.println("Vamos a jugar a cara ó cruz para ver quién empieza");
 
+		String moneda;
+
+		System.out.println("Vamos a jugar a cara ó cruz para ver quién empieza");
+		System.out.println("");
+		System.out.println(this.j1.getNombre() + ",elige:");
 		System.out.println("Cara ó Cruz??");
 
 		moneda = sc.nextLine();
@@ -146,25 +154,27 @@ public class Juego {
 			moneda = sc.nextLine();
 
 		}
-		
+
 		return moneda;
-		
+
 	}
 
-	public void InicializarJugadoresTablero() {
+	public void InicializarJugadores() {
 
-		this.t1 = new Tablero();
-
-		this.j1 = new Jugadores(elegirNombre("Jugador1"), elegirFicha(), t1);
+		inicializarJugador1();
 
 		this.j2 = new Jugadores(elegirNombre("Jugador2"), elegirFicha(), t1);
+
+	}
+
+	public void InicializarTablero() {
 
 		System.out.println("Empieza la partida!!");
 
 		System.out.println("=================");
 		this.t1.imprimirTablero();
 		System.out.println("=================");
-		
+
 	}
 
 	public void jugarVsMaquina(Jugadores j1, Jugadores m) {
@@ -177,6 +187,8 @@ public class Juego {
 
 		String moneda2 = "";
 
+		inicializarJugador1();
+
 		moneda = elegirCaraDeLaMoneda();
 
 		moneda2 = tirarMoneda(r, moneda2);
@@ -184,6 +196,12 @@ public class Juego {
 		if (comprobarMoneda(moneda, moneda2)) {
 
 			imprimirQueCaraHaSalido(moneda2);
+
+			System.out.println("");
+			System.out.println(this.j1.getNombre() + ",has acertado!!Empiezas poniendo ficha");
+			System.out.println("");
+			
+			tiempo(3);
 
 			empezarPartidaVsMaquina();
 
@@ -194,7 +212,7 @@ public class Juego {
 				if (comprobarQueElJuegoHaTerminado()) {
 
 					break;
-					
+
 				}
 
 				jugarMaquina();
@@ -205,6 +223,12 @@ public class Juego {
 
 			imprimirQueCaraHaSalido(moneda2);
 
+			System.out.println("");
+			System.out.println(this.j1.getNombre() + ",has fallado.Empieza poniendo ficha la MÁQUINA");
+			System.out.println("");
+			
+			tiempo(3);
+
 			empezarPartidaVsMaquina();
 
 			do {
@@ -214,7 +238,7 @@ public class Juego {
 				if (comprobarQueElJuegoHaTerminado()) {
 
 					break;
-					
+
 				}
 
 				jugarJugador1();
@@ -225,26 +249,28 @@ public class Juego {
 
 	}
 
-	public void imprimirQueCaraHaSalido(String moneda2) {
-		
-		System.out.println("La moneda ha salido " + moneda2);
-		
-	}
-
-	public void empezarPartidaVsMaquina() {
-		
-		this.t1 = new Tablero();
+	public void inicializarJugador1() {
 
 		this.j1 = new Jugadores(elegirNombre("Jugador1"), elegirFicha(), t1);
 
-		this.m = new Jugadores("M�QUINA", "M", t1);
+	}
+
+	public void imprimirQueCaraHaSalido(String moneda2) {
+
+		System.out.println("La moneda ha salido " + moneda2);
+
+	}
+
+	public void empezarPartidaVsMaquina() {
+
+		this.m = new Jugadores("MÁQUINA", "M", t1);
 
 		System.out.println("Empieza la partida!!");
 
 		System.out.println("=================");
 		this.t1.imprimirTablero();
 		System.out.println("=================");
-		
+
 	}
 
 	public void jugarJugador1() {
@@ -258,7 +284,7 @@ public class Juego {
 			this.j1.jugPersona(fila, columna);
 
 			System.out.println("=================");
-			t1.imprimirTablero();
+			this.t1.imprimirTablero();
 			System.out.println("=================");
 
 			if (t1.comprobarGanador() == true) {
@@ -279,6 +305,18 @@ public class Juego {
 
 	}
 
+	public void tiempo(int segundos) {
+
+		try {
+
+			Thread.sleep(segundos * 1000);
+
+		} catch (Exception Error) {
+
+		}
+
+	}
+
 	public void jugarJugador2() {
 
 		do {
@@ -290,7 +328,7 @@ public class Juego {
 			this.j2.jugPersona(fila, columna);
 
 			System.out.println("=================");
-			t1.imprimirTablero();
+			this.t1.imprimirTablero();
 			System.out.println("=================");
 
 			if (t1.comprobarGanador() == true) {
@@ -319,10 +357,12 @@ public class Juego {
 
 			System.out.println("Turno de " + this.m.getNombre());
 
+			tiempo(2);
+
 			this.m.jugMaquina(fila, columna);
 
 			System.out.println("=================");
-			t1.imprimirTablero();
+			this.t1.imprimirTablero();
 			System.out.println("=================");
 
 			if (t1.comprobarGanador() == true) {
@@ -346,7 +386,7 @@ public class Juego {
 	public String elegirNombre(String nombre) {
 
 		System.out.println(nombre);
-		
+
 		System.out.println("Qué nombre quieres ponerte?");
 
 		return sc.nextLine();
@@ -355,7 +395,7 @@ public class Juego {
 
 	public String elegirFicha() {
 
-		System.out.println("Qué palabra ó letra quieres que sea tu ficha?");
+		System.out.println("Qué caráter eliges como ficha?");
 
 		return sc.nextLine();
 

@@ -1,4 +1,4 @@
-package ejercicio1;
+package ejercicioExtra;
 
 import java.util.Scanner;
 
@@ -8,27 +8,27 @@ public class Main {
 
 		Scanner sc = new Scanner(System.in);
 
-		Conjunto c1 = new Conjunto();
-		
-		Conjunto c2 = new Conjunto();
-		
-		Conjunto c3 = new Conjunto();
+		Conjunto<Double> c1 = new Conjunto<>();
+
+		Conjunto<Double> c2 = new Conjunto<>();
+
+		Conjunto<Double> c3 = new Conjunto<>();
 
 		int opc;
 
-		int elemento;
+		double elemento;
 
-		c1.addElement(1);
-		c1.addElement(2);
-		c1.addElement(3);
-		c1.addElement(4);
-		c1.addElement(5);
+		c1.addElement(1.0);
+		c1.addElement(2.0);
+		c1.addElement(3.0);
+		c1.addElement(4.0);
+		c1.addElement(5.0);
 
-		c2.addElement(4);
-		c2.addElement(5);
-		c2.addElement(6);
-		c2.addElement(7);
-		c2.addElement(8);
+		c2.addElement(4.0);
+		c2.addElement(5.0);
+		c2.addElement(6.0);
+		c2.addElement(7.0);
+		c2.addElement(8.0);
 
 		System.out.println("Bienvenido al Main del Ejercicio 1 de la Entrega de POO/Listas");
 		System.out.println("..............................................................");
@@ -59,7 +59,7 @@ public class Main {
 
 				System.out.println("¿Qué elemento quieres añadir?");
 
-				elemento = sc.nextInt();
+				elemento = sc.nextDouble();
 				sc.nextLine();
 
 				if (c1.addElement(elemento) == false) {
@@ -72,14 +72,14 @@ public class Main {
 					System.out.println("Elemento añadido");
 					System.out.println("................");
 				}
-				
+
 				break;
 
 			case 2:
 
-				System.out.println("¿Qué elemento quieres eliminar");
+				System.out.println("¿Qué elemento quieres eliminar?");
 
-				elemento = sc.nextInt();
+				elemento = sc.nextDouble();
 				sc.nextLine();
 
 				if (c1.removeElement(elemento) == false) {
@@ -91,9 +91,9 @@ public class Main {
 
 					System.out.println("Elemento eliminado");
 					System.out.println("..................");
-					
+
 				}
-				
+
 				break;
 
 			case 3:
@@ -130,7 +130,7 @@ public class Main {
 
 				System.out.println("¿Qué elemento quieres saber si está en el conjunto?");
 
-				elemento = sc.nextInt();
+				elemento = sc.nextDouble();
 				sc.nextLine();
 
 				if (c1.bePartOf(elemento) == false) {
@@ -142,9 +142,9 @@ public class Main {
 
 					System.out.println("Este elemento forma parte del conjunto");
 					System.out.println("");
-					
+
 				}
-				
+
 				break;
 
 			case 7:
@@ -158,9 +158,9 @@ public class Main {
 
 					System.out.println("Este conjunto es subconjunto del segundo");
 					System.out.println("");
-					
+
 				}
-				
+
 				break;
 
 			case 8:
@@ -177,11 +177,11 @@ public class Main {
 					System.out.println("");
 
 				}
-				
+
 				break;
 
 			case 9:
-				//Vamos a imprimir el conjunto c1
+				// Vamos a imprimir el conjunto c1
 
 				System.out.println(c1);
 				System.out.println("");
@@ -191,14 +191,21 @@ public class Main {
 			case 10:
 
 				System.out.println("Gracias por utilizar nuestro Main.Adiós!!");
+
+				break;
+
+			default:
 				
+                System.out.println("*********************");
+				System.out.println("* OPCIÓN INCORRECTA *");
+				System.out.println("*********************");
+
 			}
 
 		} while (opc != 10);
 
-		
-		sc.close();		
-		
+		sc.close();
+
 	}
 
 }

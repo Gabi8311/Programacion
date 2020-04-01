@@ -1,3 +1,4 @@
+
 package ejercicio3;
 
 import java.util.Scanner;
@@ -52,9 +53,9 @@ public class Main {
 
 			case 3:
 
-				System.out.println(".........");
+				System.out.println(".................");
 				System.out.println("SE ACABÓ EL JUEGO");
-				System.out.println(".........");
+				System.out.println(".................");
 
 				break;
 

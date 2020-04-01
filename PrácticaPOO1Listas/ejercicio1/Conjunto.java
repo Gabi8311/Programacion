@@ -17,6 +17,7 @@ public class Conjunto {
 			this.conjunto.add(element);
 
 			return true;
+			
 		}
 
 	}
@@ -32,9 +33,9 @@ public class Conjunto {
 		} else {
 
 			return false;
-			
+
 		}
-		
+
 	}
 
 	public Conjunto union(Conjunto a) {
@@ -46,14 +47,15 @@ public class Conjunto {
 			u.addElement(i);
 
 		}
-		
+
 		for (Integer j : a.conjunto) {
 
 			u.addElement(j);
+			
 		}
-		
+
 		return u;
-		
+
 	}
 
 	public Conjunto interseccion(Conjunto a) {
@@ -65,13 +67,13 @@ public class Conjunto {
 			if (a.conjunto.contains(i)) {
 
 				c.conjunto.add(i);
-				
+
 			}
-			
+
 		}
-		
+
 		return c;
-		
+
 	}
 
 	public Conjunto diferencia(Conjunto a) {
@@ -83,13 +85,13 @@ public class Conjunto {
 			if (!a.conjunto.contains(i)) {
 
 				d.conjunto.add(i);
-				
+
 			}
-			
+
 		}
-		
+
 		return d;
-		
+
 	}
 
 	public boolean bePartOf(Integer element) {
@@ -101,7 +103,7 @@ public class Conjunto {
 		} else {
 
 			return false;
-			
+
 		}
 
 	}
@@ -113,17 +115,17 @@ public class Conjunto {
 			if (!a.conjunto.contains(i)) {
 
 				return false;
-				
+
 			}
 
 		}
-		
+
 		return true;
-		
+
 	}
 
-	public boolean twins(Conjunto a) {      
-		
+	public boolean twins(Conjunto a) {
+
 		for (Integer i : this.conjunto) {
 
 			if (!a.bePartOf(i)) {
@@ -133,19 +135,19 @@ public class Conjunto {
 					if (!this.bePartOf(j)) {
 
 						return false;
-						
+
 					}
 
 				}
-				
+
 				return false;
-				
+
 			}
 
 		}
-		
+
 		return true;
-		
+
 	}
 
 	@Override
@@ -156,9 +158,9 @@ public class Conjunto {
 		for (Integer i : this.conjunto) {
 
 			s += "el " + i + ",";
-			
+
 		}
-		
+
 		s = s.substring(0, s.length() - 1);
 
 		return s + "}";

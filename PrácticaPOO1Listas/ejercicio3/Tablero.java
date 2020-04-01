@@ -1,6 +1,5 @@
 package ejercicio3;
 
-//Ver dónde se ponen los settes y los gettes
 public class Tablero {
 
 	private String[][] tablero;
@@ -15,16 +14,19 @@ public class Tablero {
 	public Tablero(String[][] tablero) {
 
 		this.tablero = tablero;
+		
 	}
 
 	public String[][] getTablero() {
 
 		return tablero;
+		
 	}
 
 	public void setTablero(String[][] tablero) {
 
 		this.tablero = tablero;
+		
 	}
 
 	public void iniciarTablero() {
@@ -52,12 +54,13 @@ public class Tablero {
 			}
 
 			System.out.println("");
+			
 		}
 
 	}
 
 	public int ponerFicha(int fila, int columna, String ficha, boolean maquina) {
-
+		
 		if ((fila < 0 || fila > 2) || (columna < 0 || columna > 2)) {
 
 			System.out.println("COORDENADA INCORRECTA.");
@@ -73,6 +76,7 @@ public class Tablero {
 				System.out.println("CASILLA OCUPADA");
 
 			}
+			
 			return -2;// casilla ocupada
 
 		} else {

@@ -10,7 +10,7 @@ public class Main {
 
 		Vector3D v1 = new Vector3D();
 
-		Vector3D v2 = new Vector3D(4, 5, 6);
+		Vector3D v2 = new Vector3D(4,5,6);
 
 		Vector3D v3 = new Vector3D();
 
@@ -73,7 +73,7 @@ public class Main {
 
 				v3 = v1.sumVectors(v2);
 
-				System.out.println("El vector resultante es: "+v3);
+				System.out.println("El vector resultante es: " + v3);
 				System.out.println("");
 
 				break;
@@ -83,7 +83,7 @@ public class Main {
 
 				v3 = v1.subtract(v2);
 
-				System.out.println("El vector resultante es: "+v3);
+				System.out.println("El vector resultante es: " + v3);
 				System.out.println("");
 
 				break;
@@ -124,6 +124,12 @@ public class Main {
 				System.out.println("Gracias por utilizar nuestro Main.Adiós!!");
 
 				break;
+
+			default:
+
+				System.out.println("*********************");
+				System.out.println("* OPCIÓN INCORRECTA *");
+				System.out.println("*********************");
 
 			}
 
