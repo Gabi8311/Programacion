@@ -89,7 +89,7 @@ public class Main {
 				break;
 
 			case 4:
-				// Calculamos el m�dulo del Vector v1
+				// Calculamos el módulo del Vector v1
 
 				System.out.println("El módulo de este Vector es: " + v1.calculateModule());
 				System.out.println("");

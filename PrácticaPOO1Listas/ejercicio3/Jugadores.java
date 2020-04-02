@@ -10,7 +10,7 @@ public class Jugadores {
 
 	private String nombre;
 
-	private Tablero t = new Tablero();
+	private Tablero t ;
 
 	public Jugadores() {
 

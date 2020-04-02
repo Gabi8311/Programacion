@@ -29,6 +29,7 @@ public class Main {
 		c2.addElement(6.0);
 		c2.addElement(7.0);
 		c2.addElement(8.0);
+		
 
 		System.out.println("Bienvenido al Main del Ejercicio 1 de la Entrega de POO/Listas");
 		System.out.println("..............................................................");

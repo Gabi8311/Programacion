@@ -8,7 +8,7 @@ public class Juego {
 
 	Scanner sc = new Scanner(System.in);
 
-	Tablero t1 = new Tablero();
+	Tablero t1 ;
 
 	Jugadores j1;
 
@@ -25,12 +25,16 @@ public class Juego {
 	int opc;
 
 	boolean turno;
+	
+	public Juego(Tablero t) {
+		
+		this.t1 = t;
+		
+	}
 
 	public void jugar(Jugadores j1, Jugadores j2) {
 
 		Random r = new Random();
-
-		int azar;
 
 		String moneda = "";
 
@@ -180,8 +184,6 @@ public class Juego {
 	public void jugarVsMaquina(Jugadores j1, Jugadores m) {
 
 		Random r = new Random();
-
-		int azar;
 
 		String moneda = "";
 

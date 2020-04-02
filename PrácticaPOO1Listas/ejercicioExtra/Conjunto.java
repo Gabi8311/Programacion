@@ -6,26 +6,6 @@ public class Conjunto<T> {
 
 	private ArrayList<T> conjunto = new ArrayList<>();
 
-	private T element;
-
-	public Conjunto() {
-
-		element = null;
-
-	}
-
-	public void setElemento(T nuevoValor) {
-
-		this.element = nuevoValor;
-
-	}
-
-	public T getValor() {
-
-		return this.element;
-
-	}
-
 	public boolean addElement(T element) {
 
 		if (this.conjunto.contains(element)) {

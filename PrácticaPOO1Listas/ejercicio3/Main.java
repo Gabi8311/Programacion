@@ -17,7 +17,7 @@ public class Main {
 
 		Jugadores m = new Jugadores("M", "MÁQUINA", t1);
 
-		Juego juego1 = new Juego();
+		Juego juego1 = new Juego(t1);
 
 		int opc = 1;
 
